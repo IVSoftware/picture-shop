@@ -47,8 +47,7 @@ namespace picture_shop
             pictureBox1.Refresh();
         }
 
-        private
-        List<Bitmap> Layers { get; } = new List<Bitmap>();
+        private List<Bitmap> Layers { get; } = new List<Bitmap>();
         private void onPicturebox1Paint(object? sender, PaintEventArgs e)
         {
             Bitmap bmp;
@@ -70,6 +69,7 @@ namespace picture_shop
         }
         private Bitmap replaceColor(Bitmap bmp, Color targetColor, int tolerance)
         {
+            if(tolerance == 0) return bmp;
             var copy = new Bitmap(bmp);
             for (int x = 0; x < bmp.Width; x++)
             {
